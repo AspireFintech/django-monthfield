@@ -12,7 +12,7 @@ class MonthField(models.DateField):
             month = value
         elif isinstance(value, datetime.date):
             month = Month.from_date(value)
-        elif isinstance(value, basestring):
+        elif isinstance(value, str):
             month = Month.from_string(value)
         else:
             month = None
@@ -23,7 +23,7 @@ class MonthField(models.DateField):
         if month is not None:
             return month.first_day()
         return None
-        
+
     def from_db_value(self, value, expression, connection, context):
         return self.to_python(value)
 

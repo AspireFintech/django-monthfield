@@ -19,7 +19,7 @@ class MonthSelectorWidget(widgets.MultiWidget):
 
     def decompress(self, value):
         if value:
-            if isinstance(value, basestring):
+            if isinstance(value, str):
                 m = int(value[5:7])
                 y = int(value[:4])
                 return [ m, y ]

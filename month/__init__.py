@@ -18,7 +18,7 @@ class Month(object):
     @classmethod
     def from_date(cls, date):
         return cls(date.year, date.month)
-    
+
     @classmethod
     def from_string(cls, date):
         y = int(date[:4])
@@ -52,7 +52,7 @@ class Month(object):
             return self.year == x.year and self.month == x.month
         if isinstance(x, int):
             return x == int(self)
-        if isinstance(x, basestring):
+        if isinstance(x, str):
             return str(self) == x[:7]
     def __gt__(self, x):
         if isinstance(x, Month):
@@ -62,7 +62,7 @@ class Month(object):
             return self.first_day() > x
         if isinstance(x, int):
             return int(self) > x
-        if isinstance(x, basestring):
+        if isinstance(x, str):
             return str(self) > x[:7]
     def __ne__(self, x):
         return not self == x
